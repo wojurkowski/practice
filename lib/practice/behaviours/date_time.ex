@@ -1,5 +1,5 @@
 defmodule Practice.Behaviours.DateTime do
-  @doc """
+  @moduledoc """
   Wrapper around DateTime so its possible to mock time in tests
   """
   @callback utc_now() :: DateTime.t()

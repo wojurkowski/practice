@@ -1,4 +1,11 @@
 defmodule Practice.PointsWorker do
+  @moduledoc """
+  Module that runs every minute when application is started. Every time it runs:
+  - it picks up a new max_number from range 0 to 100
+  - it calls a service to update every user points in the database to random number
+
+  in the state it keeps track of current max_number and the last genserver query timestamp
+  """
   use GenServer
 
   def date_time_service() do

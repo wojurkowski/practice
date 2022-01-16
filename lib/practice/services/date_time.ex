@@ -1,4 +1,8 @@
 defmodule Practice.Services.DateTime do
+  @moduledoc """
+  Time and date operations and formatting
+  """
+
   alias Practice.Behaviours.DateTime, as: DateTimeBehaviour
 
   @behaviour DateTimeBehaviour

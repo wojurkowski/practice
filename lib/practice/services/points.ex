@@ -1,5 +1,5 @@
 defmodule Practice.Services.Points do
-  @doc """
+  @moduledoc """
   Module to interact with user points
   """
 
