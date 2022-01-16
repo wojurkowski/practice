@@ -15,8 +15,9 @@ defmodule Practice.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Practice.PubSub},
       # Start the Endpoint (http/https)
-      PracticeWeb.Endpoint
+      PracticeWeb.Endpoint,
       # Start a worker by calling: Practice.Worker.start_link(arg)
+      {Practice.PointsWorker, %{max_number: 0, timestamp: nil}}
       # {Practice.Worker, arg}
     ]
 

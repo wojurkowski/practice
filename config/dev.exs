@@ -25,6 +25,10 @@ config :practice, PracticeWeb.Endpoint,
   secret_key_base: "bUp/TPtfWEeDKFm+fo9x7+n+XDrD4IyDcSxTkw7gQAXKhmkqdqVDBOCRLvoygnAD",
   watchers: []
 
+config :practice, Practice.Services,
+  date_time_service: Practice.Services.DateTime,
+  points_service: Practice.Services.Points
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

@@ -5,8 +5,10 @@ defmodule PracticeWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PracticeWeb do
+  scope "/", PracticeWeb do
     pipe_through :api
+
+    get "/", PointsController, :index
   end
 
   # Enables LiveDashboard only for development

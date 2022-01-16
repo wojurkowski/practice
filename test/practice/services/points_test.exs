@@ -25,7 +25,7 @@ defmodule Practice.Services.PointsTest do
     end
   end
 
-  test "update_random_points should update every user points within 1..100 range" do
+  test "update_random_points should update every user points within 0..100 range" do
     user_fixture([-1, -2, -3])
 
     Points.update_random_points()
@@ -33,7 +33,7 @@ defmodule Practice.Services.PointsTest do
     User
     |> Repo.all()
     |> Enum.map(fn user ->
-      assert user.points in 1..100
+      assert user.points in 0..100
     end)
   end
 
