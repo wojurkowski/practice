@@ -39,7 +39,7 @@ defmodule Practice.Services.PointsTest do
 
   defp user_fixture(points) do
     points
-     |> Enum.each(fn points_value ->
+    |> Enum.each(fn points_value ->
       Repo.insert!(%User{points: points_value})
     end)
   end

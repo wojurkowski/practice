@@ -11,11 +11,11 @@ defmodule Practice.PointsWorkerTest do
 
   describe "points worker" do
     test "handle_info :randomize sets max_number in state" do
-       expect(PointsMock, :max_number, fn -> 10 end)
-       expect(PointsMock, :update_random_points, fn -> nil end)
-       {:noreply, state} = PointsWorker.handle_info(:randomize, @initial_state)
+      expect(PointsMock, :max_number, fn -> 10 end)
+      expect(PointsMock, :update_random_points, fn -> nil end)
+      {:noreply, state} = PointsWorker.handle_info(:randomize, @initial_state)
 
-       assert %{max_number: 10, timestamp: nil} = state
+      assert %{max_number: 10, timestamp: nil} = state
     end
 
     test "handle_call :randomize returns last genserver query time" do
@@ -23,8 +23,7 @@ defmodule Practice.PointsWorkerTest do
       expect(PointsMock, :get_users_by_points, fn 0 -> [] end)
       expect(DateTimeMock, :utc_now, fn -> first_call_timestamp end)
 
-      {:reply, reply, state} =
-        PointsWorker.handle_call(:randomize, self(), @initial_state)
+      {:reply, reply, state} = PointsWorker.handle_call(:randomize, self(), @initial_state)
 
       assert reply.timestamp == nil
 
@@ -32,8 +31,7 @@ defmodule Practice.PointsWorkerTest do
       expect(PointsMock, :get_users_by_points, fn 0 -> [] end)
       expect(DateTimeMock, :utc_now, fn -> second_call_timestamp end)
 
-      {:reply, reply, _state} =
-        PointsWorker.handle_call(:randomize, self(), state)
+      {:reply, reply, _state} = PointsWorker.handle_call(:randomize, self(), state)
 
       assert reply.timestamp == first_call_timestamp
     end
