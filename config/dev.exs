@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :practice, Practice.Repo,
-  username: System.get_env("DB_USERNAME"),
-  password: System.get_env("DB_PASSWORD"),
-  hostname: System.get_env("DB_HOSTNAME"),
-  database: System.get_env("DB_DATABASE"),
+  username: System.get_env("DB_USERNAME", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  hostname: System.get_env("DB_HOSTNAME", "localhost"),
+  database: System.get_env("DB_DATABASE", "practice_dev"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -18,7 +18,7 @@ config :practice, Practice.Repo,
 config :practice, PracticeWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: System.get_env("ENDPOINT_PORT")],
+  http: [ip: {127, 0, 0, 1}, port: System.get_env("ENDPOINT_PORT", "3000")],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

@@ -41,3 +41,10 @@ finally we can run our application
 ```bash
 mix phx.server
 ```
+
+## Tests
+
+you can run unit and integration tests
+```bash
+mix test
+```
