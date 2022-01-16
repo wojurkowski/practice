@@ -7,4 +7,7 @@ defmodule Practice.Services.DateTime do
   def utc_now() do
     DateTime.utc_now()
   end
+
+  def format(nil), do: nil
+  def format(timestamp), do: Calendar.strftime(timestamp, "%Y-%m-%d %H:%M:%S")
 end
