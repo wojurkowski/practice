@@ -32,7 +32,7 @@ get dependencies
 mix deps.get
 ```
 
-the last step before running application is to setup database and seed users with single command. This step might take a while because it seeds 1 million users, it took less than 5 minutes at my machine
+the last step before running application is to setup database and seed users with single command. This step might take a while because it seeds 1 million users, it took less than 10 seconds at my machine
 ```bash
 mix ecto.setup
 ```
